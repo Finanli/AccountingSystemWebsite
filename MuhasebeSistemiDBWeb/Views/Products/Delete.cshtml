@@ -1,0 +1,41 @@
+﻿@model MuhasebeSistemiDBWeb.Models.Urunler
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPageCustomer.cshtml";
+}
+
+<h2></h2>
+
+<h3>Silinecek Emin Misin?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunFiyat)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Geri Dön", "Index", null, new {@class="btn btn-primary"})
+        </div>
+    }
+</div>

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MuhasebeSistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Giderler">
+          <Key>
+            <PropertyRef Name="GiderNo" />
+          </Key>
+          <Property Name="GiderNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GiderAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="VergiOranı" Type="int" />
+          <Property Name="VergiDahilTutar" Type="int" />
+        </EntityType>
+        <EntityType Name="Musteriler">
+          <Key>
+            <PropertyRef Name="MusteriNo" />
+          </Key>
+          <Property Name="MusteriNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusteriAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ulkesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sehir" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="char" MaxLength="11" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Siparisler">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusteriAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunAdet" Type="int" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="UrunNo" />
+          </Key>
+          <Property Name="UrunNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunFiyat" Type="money" />
+        </EntityType>
+        <EntityContainer Name="MuhasebeSistemiModelStoreContainer">
+          <EntitySet Name="Giderler" EntityType="Self.Giderler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Musteriler" EntityType="Self.Musteriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siparisler" EntityType="Self.Siparisler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MuhasebeSistemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Giderler">
+          <Key>
+            <PropertyRef Name="GiderNo" />
+          </Key>
+          <Property Name="GiderNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GiderAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VergiOranı" Type="Int32" />
+          <Property Name="VergiDahilTutar" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Musteriler">
+          <Key>
+            <PropertyRef Name="MusteriNo" />
+          </Key>
+          <Property Name="MusteriNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusteriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ulkesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sehir" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Siparisler">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusteriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAdet" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Urunler">
+          <Key>
+            <PropertyRef Name="UrunNo" />
+          </Key>
+          <Property Name="UrunNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunFiyat" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityContainer Name="MuhasebeSistemiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Giderlers" EntityType="Self.Giderler" />
+          <EntitySet Name="Musterilers" EntityType="Self.Musteriler" />
+          <EntitySet Name="Siparislers" EntityType="Self.Siparisler" />
+          <EntitySet Name="Urunlers" EntityType="Self.Urunler" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MuhasebeSistemiModelStoreContainer" CdmEntityContainer="MuhasebeSistemiEntities">
+          <EntitySetMapping Name="Giderlers">
+            <EntityTypeMapping TypeName="MuhasebeSistemiModel.Giderler">
+              <MappingFragment StoreEntitySet="Giderler">
+                <ScalarProperty Name="GiderNo" ColumnName="GiderNo" />
+                <ScalarProperty Name="GiderAdi" ColumnName="GiderAdi" />
+                <ScalarProperty Name="VergiOranı" ColumnName="VergiOranı" />
+                <ScalarProperty Name="VergiDahilTutar" ColumnName="VergiDahilTutar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Musterilers">
+            <EntityTypeMapping TypeName="MuhasebeSistemiModel.Musteriler">
+              <MappingFragment StoreEntitySet="Musteriler">
+                <ScalarProperty Name="MusteriNo" ColumnName="MusteriNo" />
+                <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+                <ScalarProperty Name="Ulkesi" ColumnName="Ulkesi" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparislers">
+            <EntityTypeMapping TypeName="MuhasebeSistemiModel.Siparisler">
+              <MappingFragment StoreEntitySet="Siparisler">
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+                <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="UrunAdet" ColumnName="UrunAdet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urunlers">
+            <EntityTypeMapping TypeName="MuhasebeSistemiModel.Urunler">
+              <MappingFragment StoreEntitySet="Urunler">
+                <ScalarProperty Name="UrunNo" ColumnName="UrunNo" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="UrunFiyat" ColumnName="UrunFiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

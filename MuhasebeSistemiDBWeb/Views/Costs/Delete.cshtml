@@ -1,0 +1,49 @@
+﻿@model MuhasebeSistemiDBWeb.Models.Giderler
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPageCustomer.cshtml";
+}
+
+<h2></h2>
+
+<h3>Silinecek Emin Misin?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GiderAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiderAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VergiOranı)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VergiOranı)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VergiDahilTutar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VergiDahilTutar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Geri Dön", "Index", null, new {@class ="btn btn-primary"})
+        </div>
+    }
+</div>

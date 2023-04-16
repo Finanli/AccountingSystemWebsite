@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MuhasebeSistemiDBWeb.Models.Urunler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageCustomer.cshtml";
+}
+
+<h2>Ürün Ekleme Ekranı</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Ekle", null, new {@class ="btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunFiyat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunFiyat)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.UrunNo }, new {@class ="btn btn-warning"}) |
+            
+            @Html.ActionLink("Sil", "Delete", new { id=item.UrunNo }, new {@class = "btn btn-danger"})
+        </td>
+    </tr>
+}
+
+</table>

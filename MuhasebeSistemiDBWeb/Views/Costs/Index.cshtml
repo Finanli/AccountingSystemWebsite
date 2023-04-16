@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MuhasebeSistemiDBWeb.Models.Giderler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageCustomer.cshtml";
+}
+
+<h2></h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Ekle", null, new {@class="btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GiderAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VergiOranı)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VergiDahilTutar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiderAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VergiOranı)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VergiDahilTutar)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.GiderNo }, new {@class="btn btn-warning"}) |
+            
+            @Html.ActionLink("Sil", "Delete", new { id=item.GiderNo }, new { @class="btn btn-danger"})
+        </td>
+    </tr>
+}
+
+
+</table>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MuhasebeSistemiDBWeb.Models.Siparisler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageCustomer.cshtml";
+}
+
+<h2>Sipariş Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Ekle", null, new {@class = "btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MusteriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAdet)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusteriAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunAdet)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.SiparisNo }, new {@class="btn btn-warning"}) |
+           
+            @Html.ActionLink("Sil", "Delete", new { id=item.SiparisNo }, new {@class = "btn btn-danger"})
+        </td>
+    </tr>
+}
+
+</table>
